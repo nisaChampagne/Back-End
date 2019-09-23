@@ -14,5 +14,7 @@ public interface PlantService
 
         List<Plant> findPlantByUserName(String username);
 
+        List<Plant> findPlantByUserId(long userid);
+
         Plant save(Plant plant);
     }

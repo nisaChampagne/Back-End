@@ -46,6 +46,13 @@ public class Plant extends Auditable
         @JsonIgnoreProperties({"plants", "hibernateLazyInitializer"})
         private User user;
 
+        @ApiModelProperty(name = "schedule",
+                value = "Schedule when to water your plant (days per week)",
+                required = true,
+                example = "3")
+        @Column(nullable = false)
+        private int schedule;
+
         public Plant() {
         }
 
@@ -54,11 +61,20 @@ public class Plant extends Auditable
             this.name = name;
         }
 
-        public Plant(String species, String name, String location, User user) {
+        public Plant(String species, String name, String location, User user, int schedule) {
             this.species = species;
             this.name = name;
             this.location = location;
             this.user = user;
+            this.schedule = schedule;
+        }
+
+        public int getSchedule() {
+            return schedule;
+        }
+
+        public void setSchedule(int schedule) {
+            this.schedule = schedule;
         }
 
         public Plant(long plantsid, User currentUser) {
