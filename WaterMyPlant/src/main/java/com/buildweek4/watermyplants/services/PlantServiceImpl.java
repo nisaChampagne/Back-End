@@ -68,14 +68,22 @@ public class PlantServiceImpl implements  PlantService
             return plantList;
         }
 
+        @Override
+        public List<Plant> findPlantByUserId(long userid) {
+            List<Plant> plantList = new ArrayList<>();
+            plantrepo.findAllByUser_Userid(userid).iterator().forEachRemaining(plantList::add);
+            return plantList;
+        }
 
-    @Override
+        @Override
     public Plant save(Plant plant)
         {
 //            Plant newPlant = new Plant();
 //              newPlant.setSpecies(plant.getSpecies());
 //              newPlant.setName(plant.getName());
 //              newPlant.setLocation(plant.getLocation());
+//              newPlant.setUser(userrepo.findAllById(newPlant.getUserI));
+//
 //              ArrayList<User> newUsers = new ArrayList<>();
 //            for (User u : plant.getUser()) {
 //                newUsers.add(new User(u.getUsername()));

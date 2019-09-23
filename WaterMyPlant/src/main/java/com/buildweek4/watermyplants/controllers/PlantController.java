@@ -107,6 +107,26 @@ public class PlantController
         return new ResponseEntity<>(thePlants, HttpStatus.OK);
     }
 
+        //----------------------------------------------------------------------------------------------------
+        //localhost:2019/plants/userId/{userId}
+        //gets plants by the username
+
+        @ApiOperation(value = "Finds A Plant By The userId of whom owns it", response = Plant.class)
+        @ApiResponses(value = {
+                @ApiResponse(code = 200, message = "Plant Found", response = Plant.class),
+                @ApiResponse(code = 404, message = "Plant Not Found", response = ErrorDetail.class)
+        })
+        @GetMapping(value = "/userId/{userid}",
+                produces = {"application/json"})
+        public ResponseEntity<?> findPlantByUserId(HttpServletRequest request,
+                                                     @PathVariable long userid)
+        {
+            logger.trace(request.getMethod()
+                    .toUpperCase() + " " + request.getRequestURI() + " accessed");
+            List<Plant> thePlants = plantService.findPlantByUserId(userid);
+            return new ResponseEntity<>(thePlants, HttpStatus.OK);
+        }
+
 
 
 //----------------------------------------------------------------------------------------------------
@@ -135,7 +155,7 @@ public class PlantController
         URI newPlantURI = ServletUriComponentsBuilder.fromCurrentRequest().path("/{plantid}").buildAndExpand(newPlant.getPlantid()).toUri();
         responseHeaders.setLocation(newPlantURI);
 
-        return new ResponseEntity<>(newPlant, responseHeaders, HttpStatus.CREATED);
+        return new ResponseEntity<>(responseHeaders, HttpStatus.CREATED);
     }
 
 

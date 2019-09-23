@@ -48,7 +48,7 @@ public class UserController
         return new ResponseEntity<>(u, HttpStatus.OK);
     }
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+//    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping(value = "/users/user/name/{userName}",
             produces = {"application/json"})
     public ResponseEntity<?> getUserByName(HttpServletRequest request,
@@ -69,7 +69,7 @@ public class UserController
         return new ResponseEntity<>(authentication.getPrincipal(), HttpStatus.OK);
     }
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+//    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PostMapping(value = "/user",
             consumes = {"application/json"},
             produces = {"application/json"})
