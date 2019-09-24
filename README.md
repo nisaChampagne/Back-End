@@ -10,6 +10,8 @@ Clone the repository, open in IntelliJ (Hopefully opens faster for you than it d
 
 #Nisa Champagne
 - [ ] (https://github.com/nisaChampagne) [Github]
+
+
 #Blaine Blonquist
 - [ ] (https://github.com/bquizza5) [Github]
 
