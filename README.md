@@ -4,12 +4,14 @@
 Clone the repository, open in IntelliJ (Hopefully opens faster for you than it does for us), and  take a look!
 
 **API Documentation**
-<a href="https://nchampag-watermyplants.herokuapp.com/v2/api-docs">Swagger Documentation</a>
+(https://nchampag-watermyplants.herokuapp.com/v2/api-docs) [Swagger Documentation]
 
 **Authors**
 
 #Nisa Champagne
+- [ ] (https://github.com/nisaChampagne) [Github]
 #Blaine Blonquist
+- [ ] (https://github.com/bquizza5) [Github]
 
 **Project MVP**
 - [ ] Login/Signup Pages: user can login into an existing account with Username and Password and a Phone Number or a user can sign up for an account with a username and password and phone number.
@@ -22,7 +24,8 @@ Clone the repository, open in IntelliJ (Hopefully opens faster for you than it d
 
 - [ ] Edit User Profile: User can change their username and phone number
 
-
+**End Points**
+- [ ]
 
 
 **Created Objects Examples**
