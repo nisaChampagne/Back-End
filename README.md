@@ -1,4 +1,4 @@
-**Backend--Water My Plants  [alt text](https://www.logospng.com/images/130/flower-leaves-doodle-illustration-transparent-png-amp-svg-130954.png "Water My Plants")**
+**Backend--Water My Plants** (https://www.logospng.com/images/130/flower-leaves-doodle-illustration-transparent-png-amp-svg-130954.png "Water My Plants")
 
 
 **Usage**
