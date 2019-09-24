@@ -103,8 +103,8 @@ public class PlantServiceImpl implements  PlantService
 //            newPlant.setUser(newUsers);
 //            return plantrepo.save(newPlant);
 
-            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-            User currentUser = userrepo.findByUsername(authentication.getName());
+//            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//            User currentUser = userrepo.findByUsername(authentication.getName());
             Plant savePlant =  plantrepo.save(plant);
             return savePlant;
         }
