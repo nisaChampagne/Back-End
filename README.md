@@ -1,6 +1,7 @@
-##Backend--Water My Plants
+**Backend--Water My Plants  [alt text](https://www.logospng.com/images/130/flower-leaves-doodle-illustration-transparent-png-amp-svg-130954.png "Water My Plants")**
 
-#Usage
+
+**Usage**
 Clone the repository, open in IntelliJ (Hopefully opens faster for you than it does for us), and  take a look!
 
 **API Documentation**
@@ -27,7 +28,33 @@ Clone the repository, open in IntelliJ (Hopefully opens faster for you than it d
 - [ ] Edit User Profile: User can change their username and phone number
 
 **End Points**
-- [ ]
+
+Plants
+
+- [ ] POST  https://nchampag-watermyplants.herokuapp.com/plants/plant
+            Creates A New Plant
+
+- [ ] DELETE https://nchampag-watermyplants.herokuapp.com/plants/plant/{plantsid}
+            Deletes A Plant Based on the PlantID
+
+- [ ] GET https://nchampag-watermyplants.herokuapp.com/plants/plant/{plantsid}
+            Gets A Specific Plant By The Id Number
+
+- [ ] GET https://nchampag-watermyplants.herokuapp.com/plants/plants
+            Returns All Plants for the Authorized User
+
+- [ ] GET https://nchampag-watermyplants.herokuapp.com/plants/userID/{userid}
+            Finds A Plant By The UserId of Whom Owns It
+
+- [ ] GET https://nchampag-watermyplants.herokuapp.com/plants/userName/{userName}
+            Finds A Plant By The Username Of Plant Owner
+
+User
+
+- [ ] POST https://nchampag-watermyplants.herokuapp.com/createnewuser
+             Creates A New User
+
+
 
 
 **Created Objects Examples**
