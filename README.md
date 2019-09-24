@@ -9,9 +9,7 @@ Clone the repository, open in IntelliJ (Hopefully opens faster for you than it d
 **Authors**
 
 #Nisa Champagne
-- [ ] <a href="https://github.com/nisaChampagne">Github</a>
 #Blaine Blonquist
-- [ ] <a href="https://github.com/bquizza5">Github</a>
 
 **Project MVP**
 - [ ] Login/Signup Pages: user can login into an existing account with Username and Password and a Phone Number or a user can sign up for an account with a username and password and phone number.
