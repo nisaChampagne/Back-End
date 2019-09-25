@@ -2,6 +2,7 @@ package com.buildweek4.watermyplants.controllers;
 
 import com.buildweek4.watermyplants.models.ErrorDetail;
 import com.buildweek4.watermyplants.models.Plant;
+import com.buildweek4.watermyplants.models.ReturnPlant;
 import com.buildweek4.watermyplants.services.PlantService;
 import io.swagger.annotations.*;
 import org.slf4j.Logger;
@@ -149,13 +150,15 @@ public class PlantController
 
         newPlant = plantService.save(newPlant);
 
+        ReturnPlant newPlant1 = new ReturnPlant(newPlant.getPlantid(), newPlant.getSpecies(), newPlant.getName(), newPlant.getLocation(), newPlant.getSchedule());
+
 
         // set the location header for the newly created resource
         HttpHeaders responseHeaders = new HttpHeaders();
         URI newPlantURI = ServletUriComponentsBuilder.fromCurrentRequest().path("/{plantid}").buildAndExpand(newPlant.getPlantid()).toUri();
         responseHeaders.setLocation(newPlantURI);
 
-        return new ResponseEntity<>(responseHeaders, HttpStatus.CREATED);
+        return new ResponseEntity<>(newPlant1, HttpStatus.CREATED);
     }
 
 

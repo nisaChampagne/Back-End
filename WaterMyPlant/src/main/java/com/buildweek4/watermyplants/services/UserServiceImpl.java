@@ -28,8 +28,12 @@ public class UserServiceImpl implements UserDetailsService, UserService
     @Autowired
     private RoleRepository rolerepos;
 
+        @Override
+        public User findUserByUsername(String username) {
+            return userrepos.findByUsername(username);
+        }
 
-    @Override
+        @Override
     public long getUserId(String username)
     {
         return userrepos.getUserIdWithUsername(username);
