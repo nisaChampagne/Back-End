@@ -5,7 +5,10 @@
 Clone the repository, open in IntelliJ (Hopefully opens faster for you than it does for us), and  take a look!
 
 **API Documentation**
-(https://nchampag-watermyplants.herokuapp.com/v2/api-docs) [Swagger Documentation]
+(https://nchampag-watermyplants.herokuapp.com/v2/api-docs) 
+
+**Swagger Documentation**
+(https://nchampag-watermyplants.herokuapp.com/swagger-ui.html#/)
 
 **Authors**
 

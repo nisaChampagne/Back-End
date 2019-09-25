@@ -1,7 +1,12 @@
 package com.buildweek4.watermyplants.controllers;
 
+import com.buildweek4.watermyplants.models.ErrorDetail;
+import com.buildweek4.watermyplants.models.Plant;
 import com.buildweek4.watermyplants.models.User;
 import com.buildweek4.watermyplants.services.UserService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +31,23 @@ public class UserController
 
     @Autowired
     private UserService userService;
+
+    @ApiOperation(value = "Get User Id ", response = User.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "User Found", response = User.class),
+            @ApiResponse(code = 404, message = "User Not Found", response = ErrorDetail.class)
+    })
+
+    @GetMapping(value ="/getuserid/{username}", produces = {"application/json"})
+    public ResponseEntity<?> getUserId(HttpServletRequest request, @PathVariable String username)
+    {
+        logger.trace(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed");
+        long userid = userService.getUserId(username);
+        return new ResponseEntity<>(userid,HttpStatus.OK);
+
+
+    }
+
 
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping(value = "/users",

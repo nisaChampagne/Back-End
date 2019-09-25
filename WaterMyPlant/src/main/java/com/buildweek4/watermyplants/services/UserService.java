@@ -13,6 +13,8 @@ public interface UserService
 
     User findUserById(long id);
 
+    long getUserId(String username);
+
     User findByName(String name);
 
     void delete(long id);
