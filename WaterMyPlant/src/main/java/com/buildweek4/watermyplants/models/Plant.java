@@ -43,7 +43,7 @@ public class Plant extends Auditable
         @ManyToOne(fetch = FetchType.LAZY)
         @JoinColumn(name = "userid",
                 nullable = false)
-        @JsonIgnoreProperties({"plants", "hibernateLazyInitializer"})
+        @JsonIgnoreProperties({"user", "plants", "hibernateLazyInitializer" })
         private User user;
 
         @ApiModelProperty(name = "schedule",

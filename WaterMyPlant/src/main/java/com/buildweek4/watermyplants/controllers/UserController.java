@@ -32,18 +32,20 @@ public class UserController
     @Autowired
     private UserService userService;
 
-    @ApiOperation(value = "Get User Id ", response = User.class)
+    @ApiOperation(value = "Get User object (with plants inside) ", response = User.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "User Found", response = User.class),
             @ApiResponse(code = 404, message = "User Not Found", response = ErrorDetail.class)
     })
 
-    @GetMapping(value ="/getuserid/{username}", produces = {"application/json"})
+    @GetMapping(value ="/getuser/{username}", produces = {"application/json"})
     public ResponseEntity<?> getUserId(HttpServletRequest request, @PathVariable String username)
     {
         logger.trace(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed");
-        long userid = userService.getUserId(username);
-        return new ResponseEntity<>(userid,HttpStatus.OK);
+
+
+        User u = userService.findUserByUsername(username);
+        return new ResponseEntity<>(u, HttpStatus.OK);
 
 
     }
