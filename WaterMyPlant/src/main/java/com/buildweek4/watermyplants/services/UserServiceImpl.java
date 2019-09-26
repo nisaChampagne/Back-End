@@ -2,6 +2,7 @@ package com.buildweek4.watermyplants.services;
 
 import com.buildweek4.watermyplants.exceptions.ResourceFoundException;
 import com.buildweek4.watermyplants.exceptions.ResourceNotFoundException;
+import com.buildweek4.watermyplants.models.Plant;
 import com.buildweek4.watermyplants.models.Role;
 import com.buildweek4.watermyplants.models.User;
 import com.buildweek4.watermyplants.models.UserRoles;
@@ -118,37 +119,61 @@ public class UserServiceImpl implements UserDetailsService, UserService
 
     @Transactional
     @Override
-    public User update(User user, long id, boolean isAdmin)
+    public User update(User user, long id)
     {
-        Authentication authentication = SecurityContextHolder.getContext()
-                .getAuthentication();
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         User currentUser = userrepos.findByUsername(authentication.getName());
 
-        if (id == currentUser.getUserid() || isAdmin)
+        if (currentUser != null)
         {
-            if (user.getUsername() != null)
+            if (id == currentUser.getUserid())
             {
-                currentUser.setUsername(user.getUsername());
-            }
+                if (user.getUsername() != null)
+                {
+                    currentUser.setUsername(user.getUsername());
+                }
 
-            if (user.getPassword() != null)
+                if (user.getPassword() != null)
+                {
+                    currentUser.setPasswordNoEncrypt(user.getPassword());
+                }
+
+                if (user.getPhonenumber() != null)
+                {
+                    currentUser.setPhonenumber(user.getPhonenumber());
+                }
+
+                if (user.getUserRoles().size() > 0)
+                {
+                    // delete the old ones
+                    rolerepos.deleteUserRoles(currentUser.getUserid());
+
+                    // add the new ones
+                    for (UserRoles ur : user.getUserRoles())
+                    {
+                        rolerepos.insertUserRoles(id, ur.getRole().getRoleid());
+                    }
+                }
+
+                if (user.getPlants().size() > 0)
+                {
+                    for (Plant p : user.getPlants())
+                    {
+                        currentUser.getPlants().add(new Plant(p.getPlantid(), currentUser));
+                    }
+                }
+
+                return userrepos.save(currentUser);
+            } else
             {
-                currentUser.setPasswordNoEncrypt(user.getPassword());
+                throw new ResourceNotFoundException(id + " Not current user");
             }
-
-            if (user.getUserRoles()
-                    .size() > 0)
-            {
-                throw new ResourceFoundException("User Roles are not updated through User");
-            }
-
-            return userrepos.save(currentUser);
         } else
         {
-            throw new ResourceNotFoundException(id + " Not current user");
+            throw new ResourceNotFoundException(authentication.getName());
         }
-    }
 
+    }
     @Transactional
     @Override
     public void deleteUserRole(long userid, long roleid)
