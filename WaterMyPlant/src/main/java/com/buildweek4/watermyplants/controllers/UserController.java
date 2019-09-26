@@ -125,7 +125,7 @@ public class UserController
         logger.trace(request.getMethod()
                 .toUpperCase() + " " + request.getRequestURI() + " accessed");
 
-        userService.update(updateUser, id, request.isUserInRole("ADMIN"));
+        userService.update(updateUser, id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
