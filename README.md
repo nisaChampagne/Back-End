@@ -57,6 +57,21 @@ User
 - [ ] POST https://nchampag-watermyplants.herokuapp.com/createnewuser
              Creates A New User
 
+- [ ] PUT https://nchampag-watermyplants.herokuapp.com/user/{userid}
+            Updates A Users Username, Phonenumber, And/Or Password
+
+- [ ] GET https://nchampag-watermyplants.herokuapp.com/getuser/{username}
+            Grabs A User By Their Username
+
+- [ ] GET https://nchampag-watermyplants.herokuapp.com/users/user/{userid}
+            Grabs A User By Their Userid
+
+- [ ] GET https://nchampag-watermyplants.herokuapp.com/users
+            As Admin, Grabbing All Users With Their Plants.
+
+- [ ] DELETE https://nchampag-watermyplants.herokuapp.com/user/{userid}
+            Admin Can Delete A User By Their Userid
+
 
 
 
@@ -78,4 +93,10 @@ New users should look like this:
     "username": "username5",
     "password": "password!",
     "phonenumber": "12343214321"
+}
+
+Updating a user:
+{
+    "userid": "23",
+    "username": "apples"
 }
