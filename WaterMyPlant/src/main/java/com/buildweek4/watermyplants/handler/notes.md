@@ -1,0 +1,1 @@
+* uses our error detail model to make errors from 

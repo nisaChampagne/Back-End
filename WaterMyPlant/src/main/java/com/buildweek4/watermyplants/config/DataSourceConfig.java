@@ -16,6 +16,13 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
 
+
+/*
+
+Data Source Config - grabbing data from database 
+
+*/
+
 @Configuration
 public class DataSourceConfig
     {

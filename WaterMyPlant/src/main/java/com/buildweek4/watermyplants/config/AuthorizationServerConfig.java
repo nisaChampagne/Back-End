@@ -10,6 +10,15 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 
+/*
+
+AuthorizationServerConfig - the resource the server will check if the client
+has access to the system. 
+		* also manages tokens
+		* lets us manage how long the tokens are good for
+
+*/
+
 @Configuration
 @EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter
