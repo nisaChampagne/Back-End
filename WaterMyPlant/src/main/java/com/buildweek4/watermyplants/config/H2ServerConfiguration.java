@@ -7,6 +7,16 @@ import org.springframework.context.annotation.Bean;
 
 import java.sql.SQLException;
 
+
+/*
+
+H2ServerConfiguration - necessary for using the database tool into intellij,
+ access to h2 database in intellij
+
+*/
+
+
+
 // @Configuration
 // taken from https://techdev.io/en/developer-blog/querying-the-embedded-h2-database-of-a-spring-boot-application
 // necessary for using the database tool built into intellij

@@ -16,6 +16,16 @@ import org.springframework.security.oauth2.provider.token.store.InMemoryTokenSto
 
 import javax.annotation.Resource;
 
+/*
+
+* enabling web security
+* determine who has access to what
+* checks usernames and passwords for validity
+* password encryption
+
+*/
+
+
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
